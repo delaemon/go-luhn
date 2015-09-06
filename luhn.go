@@ -10,8 +10,8 @@ import (
 func CheckSum(num string) string {
 	products := doubled(num)
 	sum := 0
-	for _, s := range products {
-		sum = sum + sumOf(s)
+	for _, n := range products {
+		sum = sum + sumOf(n)
 	}
 	check := 10 - (sum % 10)
 	res := strconv.Itoa(check)
@@ -21,9 +21,9 @@ func CheckSum(num string) string {
 	return res
 }
 
-func sumOf(s int) int {
+func sumOf(n int) int {
 	sum := 0
-	num := split(strconv.Itoa(s))
+	num := split(strconv.Itoa(n))
 	for _, n := range num {
 		sum += n
 	}
