@@ -61,7 +61,7 @@ func keys(arr []int) []int {
 	return keys
 }
 
-func split (num string) []int {
+func split(num string) []int {
 	res := make([]int, 0, len(num))
 	for _, d := range num {
 		buf := make([]byte, 1)
@@ -74,13 +74,12 @@ func split (num string) []int {
 
 func GetRandomNumber(length int) string {
 	numbers := []int{1,2,3,4,5,6,7,8,9,0}
-	num := ""
+	res := ""
 	rand.Seed(time.Now().UnixNano())
 	for length > 0 {
 		r := rand.Intn(len(numbers))
-		num = num + strconv.Itoa(numbers[r])
+		res = res + strconv.Itoa(numbers[r])
 		length--
 	}
-
-	return num
+	return res
 }
