@@ -14,14 +14,12 @@ go get github.com/delaemon/go-luhn
 package main
 
 import (
-	"github.com/delaemon/luhn"
+	"github.com/delaemon/go-luhn"
 )
 
 func main() {
-	l := 10
-	number := luhn.GetRandomNumber(l)
-	checkSum := luhn.CheckSum(number)
-	luhnNumber := number + checkSum
+	length := 10
+	luhnNumber := luhn.Generate(length)
 	valid := luhn.Valid(luhnNumber)
 }
 ```
