@@ -69,7 +69,7 @@ func TestSplit(t *testing.T) {
 
 func TestGenerate(t *testing.T) {
 	in := 10
-	want := 11
+	want := 10
 	out := Generate(in)
 	if len(out) != want {
 		t.Errorf("in: %s, out: %t, want: %t, len(out) != want", in, out, want)

@@ -81,7 +81,7 @@ func split(num string) []int {
 }
 
 func Generate(length int) string {
-	number := getRandomNumber(length)
+	number := getRandomNumber(length - 1)
 	checkSum := checkSum(number)
 	return number + checkSum
 }
