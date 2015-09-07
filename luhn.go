@@ -1,3 +1,4 @@
+// Package go-luhn calculate and validates Luhn numbers.
 package luhn
 import (
 	"sort"
