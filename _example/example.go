@@ -6,11 +6,8 @@ import (
 )
 
 func main() {
-	l := 10
-	number := luhn.GetRandomNumber(l)
-	checkSum := luhn.CheckSum(number)
-	luhnNumber := number + checkSum
+	length := 10
+	luhnNumber := luhn.Generate(length)
 	valid := luhn.Valid(luhnNumber)
-	fmt.Printf("len: %d, num: %s, checkSum: %s, luhn: %s, valid: %t\n",
-		l, number, checkSum, luhnNumber, valid)
+	fmt.Printf("len: %d, luhn: %s, valid: %t\n", length, luhnNumber, valid)
 }

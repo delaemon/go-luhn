@@ -8,7 +8,7 @@ import (
 	"unicode/utf8"
 )
 
-func CheckSum(num string) string {
+func checkSum(num string) string {
 	products := doubled(num)
 	sum := 0
 	for _, n := range products {
@@ -22,6 +22,18 @@ func CheckSum(num string) string {
 	return res
 }
 
+func getRandomNumber(length int) string {
+	numbers := []int{1,2,3,4,5,6,7,8,9,0}
+	res := ""
+	rand.Seed(time.Now().UnixNano())
+	for length > 0 {
+		r := rand.Intn(len(numbers))
+		res = res + strconv.Itoa(numbers[r])
+		length--
+	}
+	return res
+}
+
 func sumOf(n int) int {
 	sum := 0
 	num := split(strconv.Itoa(n))
@@ -29,11 +41,6 @@ func sumOf(n int) int {
 		sum += n
 	}
 	return sum
-}
-
-func Valid(num string) bool {
-	n := split(num)
-	return strconv.Itoa(n[len(n)-1]) == CheckSum(num[0:len(n)-1])
 }
 
 func doubled(num string) []int {
@@ -73,14 +80,14 @@ func split(num string) []int {
 	return res
 }
 
-func GetRandomNumber(length int) string {
-	numbers := []int{1,2,3,4,5,6,7,8,9,0}
-	res := ""
-	rand.Seed(time.Now().UnixNano())
-	for length > 0 {
-		r := rand.Intn(len(numbers))
-		res = res + strconv.Itoa(numbers[r])
-		length--
-	}
-	return res
+func Generate(length int) string {
+	number := getRandomNumber(length)
+	checkSum := checkSum(number)
+	return number + checkSum
 }
+
+func Valid(num string) bool {
+	n := split(num)
+	return strconv.Itoa(n[len(n)-1]) == checkSum(num[0:len(n)-1])
+}
+
