@@ -9,4 +9,4 @@ go:
   - tip
 
 script:
-  - go test -v
+  - go test -v -cover
